@@ -12,34 +12,41 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
-public class FirstTestNG {
+public class FirstTestNG 
+{
 	public String baseUrl="https://www.saucedemo.com/";
 	String driverPath="C:/Users/prateek.krishna/Documents/Automation/selenium/chromedriver_win32/chromedriver.exe";
 	public WebDriver driver ;
 	
+
 @AfterTest
 	public void terminatebrowser() 
 	{
 		  driver.close();
 	}
 	  
+  
   @BeforeTest	
-  public void launchbrowser() {
+  public void launchbrowser() 
+  {
 	  System.out.println("launching chrome browser");
 	  System.setProperty("webdriver.chrome.driver", driverPath);		
 	  driver = new ChromeDriver();
 	  driver.get(baseUrl); 
 	  driver.manage().window().maximize();
 	 
-	  }
+ }
 	
   @BeforeMethod
-  public void beforemethodvalidate() {
+  public void beforemethodvalidate()
+  {
 	  System.out.print("Enter details");
   }
   
+
 @Test(priority=0)
-  public void validatelogin()
+ 
+ public void validatelogin()
 {
 	  //String expectedTitle = "Login";
        //String actualTitle = driver.getTitle();
@@ -47,10 +54,12 @@ public class FirstTestNG {
 	driver.findElement(By.id("user-name")).sendKeys("standard_user");
 	 driver.findElement(By.id("password")).sendKeys("secret_sauce");
 	 driver.findElement(By.id("login-button")).click();
-	    }
+}
+
 
 @Test(priority=1)
-public void validatepriority() {
+public void validatepriority()
+{
 	driver.findElement(By.id("first-name")).sendKeys("Prateek");
  	driver.findElement(By.id("last-name")).sendKeys("Krishna");
  	driver.findElement(By.id("postal-code")).sendKeys("10092");
